@@ -1,13 +1,17 @@
 import 'package:scoped_model/scoped_model.dart';
 
 class CalculatorModel extends Model {
+  final String _default = '0';
   String _output;
-  String _default = '0';
 
+  bool get _noInputYet => _output == null;
   String get output => _output ?? _default;
 
+  static CalculatorModel of(context) =>
+      ScopedModel.of<CalculatorModel>(context);
+
   void give(String number) {
-    if (_output == null) {
+    if (_noInputYet) {
       _output = number;
     } else {
       _output += number;
@@ -17,15 +21,12 @@ class CalculatorModel extends Model {
   }
 
   void plus() {
-    if (_output == null) {
-      _output = '$_default+';
-    } else {
-      _output += '+';
+    if (_noInputYet) {
+      _output = _default;
     }
+
+    _output += '+';
 
     notifyListeners();
   }
-
-  static CalculatorModel of(context) =>
-      ScopedModel.of<CalculatorModel>(context);
 }

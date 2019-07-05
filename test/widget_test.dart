@@ -7,7 +7,7 @@ void main() {
     final outputTooltip = find.byTooltip('Output');
     final outputText = find.descendant(
       of: outputTooltip,
-      matching: find.text('0.0'),
+      matching: find.text('0'),
     );
 
     expect(outputText, findsOneWidget);
@@ -46,7 +46,7 @@ void main() {
     final output = find.byTooltip('Output');
     final correctOutputText = find.descendant(
       of: output,
-      matching: find.text('3.0'),
+      matching: find.text('3'),
     );
 
     expect(threeButton, findsOneWidget);
@@ -62,5 +62,21 @@ void main() {
     final plusSign = find.byTooltip('Plus');
 
     expect(plusSign, findsOneWidget);
+  });
+
+  testWidgets('+ shows up in output when plus is tapped',
+      (WidgetTester tester) async {
+    await tester.pumpWidget(App());
+    final plusSign = find.byTooltip('Plus');
+    final output = find.byTooltip('Output');
+    final correctOutputText = find.descendant(
+      of: output,
+      matching: find.text('0+'),
+    );
+
+    await tester.tap(plusSign);
+    await tester.pump();
+
+    expect(correctOutputText, findsOneWidget);
   });
 }

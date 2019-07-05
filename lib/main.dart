@@ -32,14 +32,14 @@ class HomePage extends StatelessWidget {
                 children: <Widget>[
                   Tooltip(
                     message: 'Output',
-                    child: Text(model.output.toString()),
+                    child: Text(model.output),
                   ),
                   ...zeroThroughNineButtons,
                   Tooltip(
                     message: 'Plus',
                     child: FlatButton(
                       child: Text('+'),
-                      onPressed: () => {},
+                      onPressed: () => model.plus(),
                     ),
                   ),
                 ],

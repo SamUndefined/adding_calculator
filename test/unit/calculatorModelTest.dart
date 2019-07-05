@@ -6,7 +6,7 @@ void main() {
     test('output should default to 0', () {
       final calculatorModel = CalculatorModel();
 
-      expect(calculatorModel.output, 0);
+      expect(calculatorModel.output, '0');
     });
 
     test('default output should be overwritten by new numbers', () {
@@ -14,7 +14,15 @@ void main() {
 
       calculatorModel.give(5);
 
-      expect(calculatorModel.output, 5);
+      expect(calculatorModel.output, '5');
+    });
+
+    test('adds a plus sign to output', () {
+      final calculatorModel = CalculatorModel();
+
+      calculatorModel.plus();
+
+      expect(calculatorModel.output, '0+');
     });
   });
 }

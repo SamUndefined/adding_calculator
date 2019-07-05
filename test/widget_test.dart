@@ -15,16 +15,16 @@ void main() {
 
   testWidgets('Shows buttons for 0-9', (WidgetTester tester) async {
     await tester.pumpWidget(App());
-    final zero = find.byTooltip('Zero');
-    final one = find.byTooltip('One');
-    final two = find.byTooltip('Two');
-    final three = find.byTooltip('Three');
-    final four = find.byTooltip('Four');
-    final five = find.byTooltip('Five');
-    final six = find.byTooltip('Six');
-    final seven = find.byTooltip('Seven');
-    final eight = find.byTooltip('Eight');
-    final nine = find.byTooltip('Nine');
+    final zero = find.byTooltip('0');
+    final one = find.byTooltip('1');
+    final two = find.byTooltip('2');
+    final three = find.byTooltip('3');
+    final four = find.byTooltip('4');
+    final five = find.byTooltip('5');
+    final six = find.byTooltip('6');
+    final seven = find.byTooltip('7');
+    final eight = find.byTooltip('8');
+    final nine = find.byTooltip('9');
 
     expect(zero, findsOneWidget);
     expect(one, findsOneWidget);

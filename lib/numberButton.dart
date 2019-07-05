@@ -1,3 +1,4 @@
+import 'package:atdd_calculator/calculatorModel.dart';
 import 'package:flutter/material.dart';
 
 class NumberButton extends StatelessWidget {
@@ -7,11 +8,13 @@ class NumberButton extends StatelessWidget {
 
   @override
   Widget build(context) {
+    final model = CalculatorModel.of(context);
+
     return Tooltip(
       message: number.toString(),
       child: FlatButton(
         child: Text(number.toString()),
-        onPressed: () => {},
+        onPressed: () => model.give(number),
       ),
     );
   }

@@ -5,5 +5,12 @@ class CalculatorModel extends Model {
 
   double get output => _output;
 
-  void give(int number) {}
+  void give(int number) {
+    _output = number.toDouble();
+
+    notifyListeners();
+  }
+
+  static CalculatorModel of(context) =>
+      ScopedModel.of<CalculatorModel>(context);
 }

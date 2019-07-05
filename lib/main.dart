@@ -1,5 +1,7 @@
+import 'package:atdd_calculator/calculatorModel.dart';
 import 'package:atdd_calculator/numberButton.dart';
 import 'package:flutter/material.dart';
+import 'package:scoped_model/scoped_model.dart';
 
 void main() => runApp(App());
 
@@ -22,17 +24,20 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Calculator"),
-      ),
-      body: Column(
-        children: <Widget>[
-          Tooltip(
-            message: 'Output',
-            child: Text('0'),
-          ),
-          ...zeroThroughNineButtons
-        ],
+      appBar: AppBar(title: Text("Calculator")),
+      body: ScopedModel<CalculatorModel>(
+        model: CalculatorModel(),
+        child: ScopedModelDescendant<CalculatorModel>(
+          builder: (context, child, model) => Column(
+                children: <Widget>[
+                  Tooltip(
+                    message: 'Output',
+                    child: Text(model.output.toString()),
+                  ),
+                  ...zeroThroughNineButtons
+                ],
+              ),
+        ),
       ),
     );
   }

@@ -11,7 +11,7 @@ class AddStepDefs {
   void iOpenHaveTappedANumber() async {
     throw "Add feature is pending.";
 
-    final oneFinder = find.byTooltip('one');
+    final oneFinder = find.byTooltip('1');
 
     await session.driver.tap(oneFinder);
   }

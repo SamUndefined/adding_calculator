@@ -7,7 +7,7 @@ void main() {
     final outputTooltip = find.byTooltip('Output');
     final outputText = find.descendant(
       of: outputTooltip,
-      matching: find.text('0'),
+      matching: find.text('0.0'),
     );
 
     expect(outputText, findsOneWidget);
@@ -36,5 +36,24 @@ void main() {
     expect(seven, findsOneWidget);
     expect(eight, findsOneWidget);
     expect(nine, findsOneWidget);
+  });
+
+  testWidgets('Shows a number when you press that number',
+      (WidgetTester tester) async {
+    await tester.pumpWidget(App());
+
+    final threeButton = find.byTooltip('3');
+    final output = find.byTooltip('Output');
+    final correctOutputText = find.descendant(
+      of: output,
+      matching: find.text('3.0'),
+    );
+
+    expect(threeButton, findsOneWidget);
+
+    await tester.tap(threeButton);
+    await tester.pump();
+
+    expect(correctOutputText, findsOneWidget);
   });
 }

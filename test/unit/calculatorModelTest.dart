@@ -8,5 +8,13 @@ void main() {
 
       expect(calculatorModel.output, 0);
     });
+
+    test('default output should be overwritten by new numbers', () {
+      final calculatorModel = CalculatorModel();
+
+      calculatorModel.give(5);
+
+      expect(calculatorModel.output, 5);
+    });
   });
 }

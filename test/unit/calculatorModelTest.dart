@@ -33,5 +33,24 @@ void main() {
 
       expect(calculatorModel.output, '57');
     });
+
+    test('calculates that 0 equals 0', () {
+      final calculatorModel = CalculatorModel();
+
+      calculatorModel.calculate();
+
+      expect(calculatorModel.output, '0');
+    });
+
+    test('calculates that 2 plus 2 is 4', () {
+      final calculatorModel = CalculatorModel();
+
+      calculatorModel.give('2');
+      calculatorModel.plus();
+      calculatorModel.give('2');
+      calculatorModel.calculate();
+
+      expect(calculatorModel.output, '4');
+    });
   });
 }

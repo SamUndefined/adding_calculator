@@ -29,4 +29,12 @@ class CalculatorModel extends Model {
 
     notifyListeners();
   }
+
+  void calculate() {
+    final nums = output.split('+').map(int.parse);
+
+    _output = nums.reduce((i, total) => i + total).toString();
+
+    notifyListeners();
+  }
 }

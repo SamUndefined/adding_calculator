@@ -97,4 +97,19 @@ void main() {
 
     expect(correctOutputText, findsOneWidget);
   });
+
+  testWidgets('Tapping only equals results in 0', (WidgetTester tester) async {
+    await tester.pumpWidget(App());
+    final equalsSign = find.byTooltip('Equals');
+    final output = find.byTooltip('Output');
+    final correctOutputText = find.descendant(
+      of: output,
+      matching: find.text('0'),
+    );
+
+    await tester.tap(equalsSign);
+    await tester.pump();
+
+    expect(correctOutputText, findsOneWidget);
+  });
 }

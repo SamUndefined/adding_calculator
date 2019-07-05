@@ -29,19 +29,33 @@ class HomePage extends StatelessWidget {
       body: ScopedModel<CalculatorModel>(
         model: CalculatorModel(),
         child: ScopedModelDescendant<CalculatorModel>(
-          builder: (context, child, model) => Column(
+          builder: (context, child, model) => ListView(
                 children: <Widget>[
                   Tooltip(
                     message: 'Output',
-                    child: Text(model.output),
+                    child: Text(model.output, key: Key('Output')),
                   ),
-                  ...zeroThroughNineButtons,
-                  Tooltip(
-                    message: 'Plus',
-                    child: FlatButton(
-                      child: Text('+'),
-                      onPressed: () => model.plus(),
-                    ),
+                  GridView.count(
+                    scrollDirection: Axis.vertical,
+                    shrinkWrap: true,
+                    crossAxisCount: 4,
+                    children: <Widget>[
+                      ...zeroThroughNineButtons,
+                      Tooltip(
+                        message: 'Plus',
+                        child: FlatButton(
+                          child: Text('+'),
+                          onPressed: () => model.plus(),
+                        ),
+                      ),
+                      Tooltip(
+                        message: 'Equals',
+                        child: FlatButton(
+                          child: Text('='),
+                          onPressed: () => model.calculate(),
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),

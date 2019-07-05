@@ -1,6 +1,6 @@
 import 'package:ogurets/ogurets.dart';
 import 'countFeature/CountStepDefs.dart';
-import 'countFeature/session.dart';
+import 'session.dart';
 
 void main(args) async {
   var session = new Session();

@@ -1,7 +1,6 @@
 import 'package:flutter_driver/flutter_driver.dart';
 import 'package:ogurets/ogurets.dart';
-
-import 'session.dart';
+import '../session.dart';
 
 class CountStepDefs {
   Session session;
@@ -23,6 +22,6 @@ class CountStepDefs {
     final counterFinder = find.byValueKey('counter');
     final actual = await session.driver.getText(counterFinder);
 
-    assert(actual == '10');
+    assert(actual == '1');
   }
 }

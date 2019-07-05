@@ -1,5 +1,6 @@
 import 'package:flutter_driver/flutter_driver.dart';
-import 'dart:io';
+
+const dartVmServiceUrl = 'paste url here';
 
 class Session {
   FlutterDriver _driver;
@@ -7,8 +8,7 @@ class Session {
   FlutterDriver get driver => _driver;
 
   Future<FlutterDriver> start() async {
-    _driver = await FlutterDriver.connect(
-        dartVmServiceUrl: 'http://127.0.0.1:53479/9Fw3y4Wqtz0=/');
+    _driver = await FlutterDriver.connect(dartVmServiceUrl: dartVmServiceUrl);
 
     return _driver;
   }

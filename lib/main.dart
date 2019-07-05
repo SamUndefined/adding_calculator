@@ -19,7 +19,8 @@ class App extends StatelessWidget {
 }
 
 class HomePage extends StatelessWidget {
-  final zeroThroughNineButtons = List.generate(10, (num) => NumberButton(num));
+  final zeroThroughNineButtons =
+      List.generate(10, (num) => NumberButton(num.toString()));
 
   @override
   Widget build(BuildContext context) {

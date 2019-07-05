@@ -79,4 +79,22 @@ void main() {
 
     expect(correctOutputText, findsOneWidget);
   });
+
+  testWidgets('Tapping plus and a number results in 0 + that number',
+      (WidgetTester tester) async {
+    await tester.pumpWidget(App());
+    final plusSign = find.byTooltip('Plus');
+    final seven = find.byTooltip('7');
+    final output = find.byTooltip('Output');
+    final correctOutputText = find.descendant(
+      of: output,
+      matching: find.text('0+7'),
+    );
+
+    await tester.tap(plusSign);
+    await tester.tap(seven);
+    await tester.pump();
+
+    expect(correctOutputText, findsOneWidget);
+  });
 }

@@ -12,7 +12,7 @@ void main() {
     test('default output should be overwritten by new numbers', () {
       final calculatorModel = CalculatorModel();
 
-      calculatorModel.give(5);
+      calculatorModel.give('5');
 
       expect(calculatorModel.output, '5');
     });
@@ -23,6 +23,15 @@ void main() {
       calculatorModel.plus();
 
       expect(calculatorModel.output, '0+');
+    });
+
+    test('appends previously given numbers rather than overwriting them', () {
+      final calculatorModel = CalculatorModel();
+
+      calculatorModel.give('5');
+      calculatorModel.give('7');
+
+      expect(calculatorModel.output, '57');
     });
   });
 }

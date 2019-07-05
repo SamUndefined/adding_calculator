@@ -56,4 +56,11 @@ void main() {
 
     expect(correctOutputText, findsOneWidget);
   });
+
+  testWidgets('has a plus sign', (WidgetTester tester) async {
+    await tester.pumpWidget(App());
+    final plusSign = find.byTooltip('Plus');
+
+    expect(plusSign, findsOneWidget);
+  });
 }

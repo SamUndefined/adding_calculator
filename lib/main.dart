@@ -34,7 +34,14 @@ class HomePage extends StatelessWidget {
                     message: 'Output',
                     child: Text(model.output.toString()),
                   ),
-                  ...zeroThroughNineButtons
+                  ...zeroThroughNineButtons,
+                  Tooltip(
+                    message: 'Plus',
+                    child: FlatButton(
+                      child: Text('+'),
+                      onPressed: () => {},
+                    ),
+                  ),
                 ],
               ),
         ),

@@ -1,4 +1,4 @@
-# atdd_calculator
+# Adding Calculator built through ATDD
 
 # Run widget tests
 `flutter test`
